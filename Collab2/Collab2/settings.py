@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'colpy.apps.ColpyConfig',
+    'col_auth',
+    'colpy',
 ]
 
 MIDDLEWARE = [
