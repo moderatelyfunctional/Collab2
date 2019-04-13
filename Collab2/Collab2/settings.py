@@ -25,7 +25,7 @@ SECRET_KEY = '=j*f=_yn&!dgmr)fgu)orgh=$#u5as&f$hz!vw&(q(cp=2laoz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'colpy.apps.ColpyConfig',
 ]
 
 MIDDLEWARE = [
@@ -77,6 +79,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#       'NAME': 'dbname',
+#       'USER': 'user',
+#       'PASSWORD': 'pass',
+#       'HOST': 'localhost',
+#       'PORT': '',
     }
 }
 
@@ -118,3 +126,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
