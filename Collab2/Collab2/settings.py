@@ -25,7 +25,7 @@ SECRET_KEY = '=j*f=_yn&!dgmr)fgu)orgh=$#u5as&f$hz!vw&(q(cp=2laoz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['.laar.us', 'localhost']
 
 
 # Application definition
@@ -80,9 +80,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#       'NAME': 'dbname',
-#       'USER': 'user',
-#       'PASSWORD': 'pass',
+#       'NAME': 'collab',
+#       'USER': 'col',
+#       'PASSWORD': 'FwAeHLyQuwomrSYO',
 #       'HOST': 'localhost',
 #       'PORT': '',
     }
