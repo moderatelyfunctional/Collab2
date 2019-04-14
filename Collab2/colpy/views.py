@@ -64,11 +64,15 @@ def run_python(request):
 		for line in code:
 			python_out.write(line)
 
-	p = subprocess.Popen(['python', code_filename], stdout=subprocess.PIPE)
+	p = subprocess.Popen(['python', code_filename], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 	out, err = p.communicate()
 	os.remove(code_filename)
-
-	return HttpResponse(out)
+	
+	if err:
+		response = err
+	else:
+		response = out
+	return HttpResponse(response)
 
 
 
