@@ -55,7 +55,7 @@
 			{% if error_text %}
 				<div id="error-text">{{ error_text }}</div>
 			{% endif %}
-			<button class="btn waves-effect waves-light">Delete</button>
+			<button class="btn waves-effect waves-light">Delete <i class="material-icons right">clear</i></button>
 
 			{% csrf_token %}
 		</form>
@@ -74,6 +74,7 @@ const editor = CodeMirror.fromTextArea(document.getElementById("codepython"), {
 	lineNumbers: true,
 	lineWrapping: true,
 })
+editor.setSize(null, 500);
 const space_url = '{{ space_url }}';
 </script>
 
