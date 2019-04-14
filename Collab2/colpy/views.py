@@ -1,5 +1,10 @@
+import os
+import random
+import subprocess
+
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
+from django.views.decorators.csrf import csrf_exempt
 
 from col_auth.models import CollabUser, Space
 from .data import create_space_url
@@ -50,6 +55,23 @@ def delete_space(request):
 		space.delete()
 	
 	return HttpResponseRedirect('/')
+
+@csrf_exempt
+def run_python(request):
+	code = request.POST.get('python_code')
+	code_filename = 'run_python/{}.py'.format(random.random())
+	with open(code_filename, 'w') as python_out:
+		for line in code:
+			python_out.write(line)
+
+	p = subprocess.Popen(['python', code_filename], stdout=subprocess.PIPE)
+	out, err = p.communicate()
+	os.remove(code_filename)
+
+	return HttpResponse(out)
+
+
+
 
 
 
