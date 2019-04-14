@@ -45,21 +45,30 @@ def foo():
 print(foo())
 # A comment
 </textarea></form>
+
+<button class="btn waves-effect waves-light" type="submit" name="action">Run
+  <i class="material-icons right">send</i>
+</button>
+<button class="btn waves-effect waves-light" type="submit" name="action">Push
+  <i class="material-icons right">cloud</i>
+</button>
 	<form action="/delete_space/" method="post">
 		<input type="hidden" name="space_url" value="{{ space_url }}" required>
 		{% if error_text %}
 			<div id="error-text">{{ error_text }}</div>
 		{% endif %}
-		<button>Delete</button>
+		<button class="btn waves-effect waves-light">Delete</button>
 
 		{% csrf_token %}
 	</form>
+
 
 {% endif %}
 </div>
 {% endblock %}
 
 {% block contentJS %}
+
 <script>
 var editor = CodeMirror.fromTextArea(document.getElementById("codepython"), {
 mode: "python",
