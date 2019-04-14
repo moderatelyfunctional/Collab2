@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     'col_auth.apps.ColAuthConfig',
     'colpy.apps.ColpyConfig',
 ]
@@ -131,3 +131,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static/'),
 )
+MEDIA_URL = '/run_python/'
+MEDIA_ROOT = '/var/www/Collab2/Collab2/run_python/'
