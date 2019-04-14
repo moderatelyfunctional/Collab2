@@ -30,23 +30,23 @@ def space(request, custom_url):
 	context = dict()
 	context['space_url'] = custom_url
 
+	space = Space.objects.get(url = custom_url)
+	context['space_code'] = space.code
+
 	if not request.user.is_authenticated:
 		context['user_type'] = 'participant'
-		return render(request, 'space.html', context)
+		return render(request, 'space_participant.html', context)
 
 	if not Space.objects.filter(url = custom_url).exists():
 		return render(request, 'no_space.html', context)
 
 	collab_user = CollabUser.objects.get(email = request.user.email)
-	space = Space.objects.get(url = custom_url)
-
 	if space.host == collab_user:
 		context['user_type'] = 'host'
+		return render(request, 'space_host.html', context)
 	else:
 		context['user_type'] = 'participant'
-
-	context['space_code'] = space.code
-	return render(request, 'space.html', context)
+		return render(request, 'space_participant.html', context)
 
 def delete_space(request):
 	space_url = request.POST.get('space_url')
