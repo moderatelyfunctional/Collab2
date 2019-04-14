@@ -24,12 +24,12 @@
 	<div class="nav-wrapper">
 		<div class="container">
 			<a href="#" class="brand-logo">Collab2</a>
+      {% if request.user.is_authenticated %}
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
-        {% if request.user.is_authenticated %}
         <li><a href="/logout/">Log Out</a></li>
-        {% else %}
+      {% else %}
         <li><a href="/login/">Log In</a></li>
-        {% endif %}
+      {% endif %}
 			</ul>
 		</div>
 	</div>
@@ -37,16 +37,11 @@
 {% endblock %}
 
 {% block content %}
+<div class="container">
 <div class="buffer">
-{% if user_type == 'host' %}
 <form><textarea id="codepython" name="codepython">
-def foo():
-  x = 3 + 4
-  return x
 
-print(foo())
-# A comment
-</textarea></form>
+</textarea></form></div>
 
 <button class="btn waves-effect waves-light" type="submit" name="action">Run
   <i class="material-icons right">send</i>
@@ -63,9 +58,6 @@ print(foo())
 
 		{% csrf_token %}
 	</form>
-
-
-{% endif %}
 </div>
 {% endblock %}
 
