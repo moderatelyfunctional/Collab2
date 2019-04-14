@@ -14,6 +14,52 @@ body {
 	font-size: 1.5rem;
 }
 
+#mainHeading {
+	font-family: 'Questrial', sans-serif;
+}
+
+#mainHeadline{
+	font-family: 'Questrial', sans-serif;
+	font-size: 14;
+	color: white;
+}
+
+#buttonColor{
+	color: white;
+}
+
+#logInPage{
+	padding: 50px;
+	opacity: 10%;
+}
+
+.designbox{
+	width: 100%;
+}
+
+.btn{
+  background-color: #002b36;
+}
+
+.btn-large{
+	color = white;    
+  background-color:#002b36;
+}
+
+
+.btn:visited{
+  background-color: yellow;
+}
+.btn:hover {
+  background-color: skyblue
+}
+.btn:active{
+  background-color: pink;
+}
+.btn:focus{
+  background-color: pink;
+}
+
 .form-wrapper {
 	height: 100%;
 }
@@ -26,6 +72,8 @@ body {
 	margin-top: 0;
 	margin-bottom: 40px;
 }
+
+
 
 .nav-container {
     margin: 0 auto;
