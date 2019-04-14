@@ -15,9 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from col_auth import urls as auth_urls
+from colpy import urls as colpy_urls
+from django.conf.urls import include, url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('col_auth.urls')),
-    path('', include('colpy.urls')),
+    url(r'', include(auth_urls)),
+    url(r'', include(colpy_urls)),
+
+#    path('', include('col_auth.urls')),
+#    path('', include('colpy.urls')),
 ]
