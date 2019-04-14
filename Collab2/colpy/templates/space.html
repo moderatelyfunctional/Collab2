@@ -3,6 +3,14 @@
 {% block content %}
 You are a {{ user_type }}.
 {% if user_type == 'host' %}
+<textarea id="code-python" name="code">
+def foo():
+  x = 3 + 4
+  return x
+
+print(foo())
+# A comment
+</textarea>
 	<form action="/delete_space/" method="post">
 		<input type="hidden" name="space_url" value="{{ space_url }}" required>
 		{% if error_text %}
