@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+You are a {{ user_type }}.
+{% if user_type == 'host' %}
+	<form action="/delete_space/" method="post">
+		<input type="hidden" name="space_url" value="{{ space_url }}" required>
+		{% if error_text %}
+			<div id="error-text">{{ error_text }}</div>
+		{% endif %}
+		<button>Delete</button>
+
+		{% csrf_token %} 
+	</form>
+
+{% endif %}
+{% endblock %}
+
+{% block contentJS %}
+{% if user_type == 'host' %}
+	<script type="text/javascript" src="/static/colpy/javascript/space_host.js"></script>
+{% else %}
+	<script type="text/javascript" src="/static/colpy/javascript/space_participant.js"></script>
+{% endif %}
+{% endblock %}
