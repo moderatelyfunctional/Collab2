@@ -1,10 +1,14 @@
 .CodeMirror {
   position: relative;
   overflow: hidden;
-  background: white;
+  background: #002b36;
   border: 1px solid #eee;
   max-width: 80%;
+
 }
+
+.CodeMirror-guttermarker { color: green; }
+.CodeMirror-guttermarker-subtle { color: #999; }
 
 
 
