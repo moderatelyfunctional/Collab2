@@ -39,7 +39,7 @@
 {% block content %}
 <div id="modal" class="modal">
 	<div class="modal-content">
-		<h4>Runtime Output</h4>
+		<h4 id="modal-title">Runtime Output</h4>
 		<textarea id="python-output" readonly></textarea>
 	</div>
 	<div class="modal-footer">
@@ -80,6 +80,7 @@ editor.setSize(null, 530);
 const space_url = '{{ space_url }}';
 </script>
 
+<script type="text/javascript" src="/static/js/modal.js"></script>
 <script type="text/javascript" src="/static/colpy/javascript/space_participant.js"></script>
 
 {% endblock %}

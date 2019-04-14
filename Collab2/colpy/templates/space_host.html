@@ -39,7 +39,7 @@
 {% block content %}
 <div id="modal" class="modal">
 	<div class="modal-content">
-		<h4>Runtime Output</h4>
+		<h4 id="modal-title">Runtime Output</h4>
 		<textarea id="python-output" readonly></textarea>
 	</div>
 	<div class="modal-footer">
@@ -57,6 +57,9 @@
 	</button>
 	<button id="push-btn" class="btn waves-effect waves-light" type="submit" name="action">Push
 	  <i class="material-icons right">cloud</i>
+	</button>
+	<button id="check-btn" class="btn waves-effect waves-light" type="submit" name="action">Check
+	  <i class="material-icons right">check_box</i>
 	</button>
 
 	<form action="/delete_space/" method="post">

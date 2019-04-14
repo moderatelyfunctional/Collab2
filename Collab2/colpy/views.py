@@ -113,6 +113,23 @@ def submit_python(request):
 
 	return HttpResponse('Thanks for submitting!')
 
+@csrf_exempt
+def fetch_submission(request):
+	space_url = request.POST.get('space_url')
+	collab_user = CollabUser.objects.get(email = request.user.email)
+	space = Space.objects.filter(url = space_url).first()
+
+	submissions = space.submission.all()
+	random_submission = submissions[int(len(submissions) * random.random())]
+	code = random_submission.submission_code
+
+	space.submission.clear()
+	for submission in submissions:
+		submission.delete()
+	space.save()
+
+	data = {'python_code': code}
+	return HttpResponse(json.dumps(data), content_type='application/json')
 
 
 

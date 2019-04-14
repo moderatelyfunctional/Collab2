@@ -18,11 +18,16 @@ const ajaxSendPullCode = function() {
 const ajaxSendSubmitCode = function() {
 	const python_code = editor.getValue();
 	$.ajax({
-		url: '/space/submit_code/',
+		url: '/space/submit_python/',
 		type: 'post',
 		data: {space_url: space_url, python_code: python_code},
 		success: function(response) {
-			console.log('Coolio');
+			$('#modal-title').text('Submission Status');
+			$('#python-output').text('Successfully submitted');
+			
+			const elem = document.querySelector('.modal');
+			const instance = M.Modal.init(elem);
+			instance.open();
 		}
 	})
 }

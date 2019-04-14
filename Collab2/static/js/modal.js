@@ -9,13 +9,12 @@ const ajaxSendPythonCode = function() {
 		type: 'post',
 		data: {python_code: python_code},
 		success: function(response) {
-			console.log('Hey');
 			$('#python-output').text(response);
-
+			$('#modal-title').text('Python Runtime');
+			
 			const elem = document.querySelector('.modal');
 			const instance = M.Modal.init(elem);
 			instance.open();
-
 		}
 	});
 }
