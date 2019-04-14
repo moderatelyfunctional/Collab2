@@ -1,18 +1,108 @@
-html, body, main
-{
-  height: 100%;
+html, body {
+	height: calc(100% - 32px);
+	overflow: auto !important;
 }
 
-.content
-{
-  position: relative;
+body {
+	/*background-image: url("../img/ilija-boshkov-489245-unsplash-crop-wash.jpg");*/
+	background-image: url("../img/jeremy-perkins-333405-unsplash-darker.jpg");
+	background-color: #000000;
+	background-size: cover;
 }
 
-.login
-{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%)
+#collab2-logo {
+	font-size: 1.5rem;
 }
+
+#mainHeading {
+	font-family: 'Questrial', sans-serif;
+}
+
+#mainHeadline{
+	font-family: 'Questrial', sans-serif;
+	font-size: 14;
+	color: white;
+}
+
+#buttonColor{
+	color: white;
+}
+
+#logInPage{
+	padding: 50px;
+	opacity: 10%;
+}
+
+.designbox{
+	width: 100%;
+}
+
+.btn{
+  background-color: #002b36;
+}
+
+.btn-large{
+	color = white;    
+  background-color:#002b36;
+}
+
+
+.btn:visited{
+  background-color: yellow;
+}
+.btn:hover {
+  background-color: skyblue;
+}
+.btn:active{
+  background-color: pink;
+}
+.btn:focus{
+  background-color: pink;
+}
+
+.form-wrapper {
+	height: 100%;
+}
+
+.my-wrapper {
+	height: 100%;
+}
+
+.no-padding {
+	margin-top: 0;
+	margin-bottom: 40px;
+}
+
+.nav-container {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.container {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+ /* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #616161 !important;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #616161 !important;
+  box-shadow: 0 1px 0 0 #616161 !important;
+}
+
+.modal {
+  width: 60% !important;
+}
+
+.card-panel {
+  background-color: #ffffffff;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
