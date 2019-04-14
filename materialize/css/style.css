@@ -51,7 +51,7 @@ body {
   background-color: yellow;
 }
 .btn:hover {
-  background-color: skyblue
+  background-color: skyblue;
 }
 .btn:active{
   background-color: pink;
@@ -100,5 +100,11 @@ body {
 
 .modal {
   width: 60% !important;
+}
+
+.card-panel {
+  background-color: #ffffffff;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
