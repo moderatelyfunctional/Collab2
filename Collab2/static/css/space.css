@@ -1,11 +1,15 @@
-.buffer
-{
-  width: 100%;
-  padding: 10px;
+.buffer {
+	width: 100%;
+	padding: 10px;
 }
 
-.btn
-{
-  display: inline-block;
-  margin: 10px;
+.btn {
+	display: inline-block;
+	margin: 10px;
+}
+
+#python-output {
+	border: 0;
+	resize: none;
+	outline: none;
 }
