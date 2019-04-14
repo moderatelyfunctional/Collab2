@@ -15,12 +15,13 @@ def create(request):
 	collab_user = CollabUser.objects.get(email = request.user.email)
 	collab_user_spaces = collab_user.spaces.all()
 
-	while True:
-		new_space_url = create_space_url()
-		if not collab_user_spaces.filter(url = create_space_url).exists():
-			Space.objects.create(url = new_space_url, host = collab_user)
-			context['new_space_url'] = new_space_url
-			break
+	context['new_space_url'] = 'Papaya,Umber,Jaxon'
+	# while True:
+	# 	new_space_url = create_space_url()
+	# 	if not collab_user_spaces.filter(url = create_space_url).exists():
+	# 		Space.objects.create(url = new_space_url, host = collab_user)
+	# 		context['new_space_url'] = new_space_url
+	# 		break
 
 	return render(request, 'create.html', context)
 
