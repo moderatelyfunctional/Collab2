@@ -10,12 +10,21 @@ body {
 	background-size: cover;
 }
 
+#collab2-logo {
+	font-size: 1.5rem;
+}
+
 .form-wrapper {
 	height: 100%;
 }
 
 .my-wrapper {
 	height: 100%;
+}
+
+.no-padding {
+	margin-top: 0;
+	margin-bottom: 40px;
 }
 
 .nav-container {
