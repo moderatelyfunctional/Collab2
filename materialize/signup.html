@@ -25,33 +25,35 @@
 
 
         <div class="form-wrapper container valign-wrapper">
-           <div class="row center-align">
-                 <div class="card">
+           <div class="center-align">
+                 <div class="card-panel">
                     <div class="card-content">
-                       <span class="card-title black-text">Sign Up</span>
+                       <span class="card-title">
+                          <span style="color: black !important; font-size: 1.5rem">Sign Up</span>
+                       </span>
                        <form>
-                          <div class="row">
-                            <div class="input-field col s6">
-                                <input placeholder="First Name" id="first" type="text" class="validate">
-                            </div> 
-                            <div class="input-field col s6">
-                                <input placeholder="Last Name" id="last" type="text" class="validate">
-                            </div>
-                          </div>
                           <div class="row">
                             <div class="input-field col s12">
                                 <input placeholder="Email" id="email" type="text" class="validate">
                             </div>
-                          </div>
-                          <div class="row">
+                          <!-- </div>
+                          <div class="row"> -->
                             <div class="input-field col s12">
-                                <input placeholder="Password" id="password" type="text" class="validate">
+                                <input placeholder="Password" id="password" type="password" class="validate">
+                            </div>
+                          <!-- </div>
+                          <div class="row"> -->
+                            <div class="input-field col s12">
+                                <input placeholder="Confirm Password" id="confirm-password" type="password" class="validate">
                             </div>
                           </div>
                        </form>
-                    </div>
-                    <div class="card-action">
-                       <input type="submit" class="btn" value="Sign Up">
+                       <div class="row">
+                          <medium>Already have an account? Log in </medium><a href="#"><medium>here.</medium></a>
+                       </div>
+                       <div class="row">
+                          <a class="waves-effect waves-light btn"><span id="buttonColor">Sign Up</span></a>
+                       </div>
                     </div>
                  </div>
            </div>
