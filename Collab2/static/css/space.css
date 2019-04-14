@@ -3,3 +3,9 @@
   width: 100%;
   padding: 10px;
 }
+
+.btn
+{
+  display: inline-block;
+  margin: 10px;
+}
