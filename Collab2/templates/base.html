@@ -1,12 +1,16 @@
+{% load static %}
+
 <!DOCTYPE>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<title>Collab2</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link type="text/css" rel="stylesheet" href="{% static 'vendor/css/materialize.min.css' %}" media="screen,projection"/>
 		{% block contentCSS %}
 		{% endblock %}
 	</head>
+
 	<body>
 		{% block headerJS %}
 		{% endblock %}
@@ -14,7 +18,8 @@
 		{% block content %}
 		{% endblock %}
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="{% static 'vendor/js/jquery-3.4.0.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'vendor/js/materialize.min.js' %}"></script>
 		{% block contentJS %}
 		{% endblock %}
 	</body>
