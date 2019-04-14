@@ -31,7 +31,10 @@
 		</div>
 	</nav>
 
-	<div class="container center-align">
+	{% block variables %}
+	{% endblock %}
+
+	<div class="container {{ align }}">
 		{% block content %}
 		{% endblock %}
 	</div>
