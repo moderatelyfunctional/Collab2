@@ -37,6 +37,16 @@
 {% endblock %}
 
 {% block content %}
+<div id="modal" class="modal">
+	<div class="modal-content">
+		<h4>Runtime Output</h4>
+		<textarea id="python-output" readonly></textarea>
+	</div>
+	<div class="modal-footer">
+		<a href="#!" class="model-open modal-close waves-effect waves-black btn-flat">Done</a>
+	</div>
+</div>
+
 <div class="buffer">
 	<form>
 		<textarea id="codepython" name="codepython">{{ space_code }}</textarea>
@@ -55,7 +65,7 @@
 			{% if error_text %}
 				<div id="error-text">{{ error_text }}</div>
 			{% endif %}
-			<button class="btn waves-effect waves-light">Delete</button>
+			<button class="btn waves-effect waves-light">Delete <i class="material-icons right">clear</i></button>
 
 			{% csrf_token %}
 		</form>
@@ -74,9 +84,11 @@ const editor = CodeMirror.fromTextArea(document.getElementById("codepython"), {
 	lineNumbers: true,
 	lineWrapping: true,
 })
+editor.setSize(null, 530);
 const space_url = '{{ space_url }}';
 </script>
 
+<script type="text/javascript" src="/static/js/modal.js"></script>
 {% if user_type == 'host' %}
 	<script type="text/javascript" src="/static/colpy/javascript/space_host.js"></script>
 {% else %}
