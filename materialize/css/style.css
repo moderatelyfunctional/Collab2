@@ -1,4 +1,10 @@
-html, body, 
+html, body,
+
+body {
+ background-image: url("../img/ilija-boshkov-489245-unsplash-crop-wash.jpg");
+ background-color: #000000;
+ background-size: cover;
+}
 
 .form-wrapper {
 	height: 100%;
@@ -14,5 +20,13 @@ html, body,
     max-width: 1280px;
     width: 90%;}
 
-
+ /* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #616161 !important;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #616161 !important;
+  box-shadow: 0 1px 0 0 #616161 !important;
+}
 
