@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ user_type }} | Collab2
+{% endblock %}
+
+{% block contentCSS %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/space.css' %}" media="screen,projection"/>
+<link type="text/css" rel="stylesheet" href="{% static 'vendor/codemirror/lib/codemirror.css' %}" media="screen,projection"/>
+<link type="text/css" rel="stylesheet" href="{% static 'vendor/codemirror/theme/material.css' %}" media="screen,projection"/>
+<link type="text/css" rel="stylesheet" href="{% static 'vendor/codemirror/addon/scroll/simplescrollbars.css' %}" media="screen,projection"/>
+{% endblock %}
+
+{% block headerJS %}
+<script src="{% static 'vendor/codemirror/lib/codemirror.js' %}"></script>
+<script src="{% static 'vendor/codemirror/mode/python/python.js' %}"></script>
+<script src="{% static 'vendor/codemirror/addon/selection/active-line.js' %}"></script>
+<script src="{% static 'vendor/codemirror/addon/scroll/simplescrollbars.js' %}"></script>
+{% endblock %}
+
+{% block header %}
+<nav class="topbar">
+	<div class="nav-wrapper">
+		<div class="container">
+			<a href="#" class="brand-logo">Collab2</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+        {% if request.user.is_authenticated %}
+        <li><a href="/logout/">Log Out</a></li>
+        {% else %}
+        <li><a href="/login/">Log In</a></li>
+        {% endif %}
+			</ul>
+		</div>
+	</div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="buffer">
+<form><textarea id="codepython" name="codepython">
+
+</textarea></form>
+
+<button class="btn waves-effect waves-light" type="submit" name="action">Run
+  <i class="material-icons right">send</i>
+</button>
+<button class="btn waves-effect waves-light" type="submit" name="action">Submit
+  <i class="material-icons right">cloud</i>
+</button>
+	<form action="/delete_space/" method="post">
+		<input type="hidden" name="space_url" value="{{ space_url }}" required>
+		{% if error_text %}
+			<div id="error-text">{{ error_text }}</div>
+		{% endif %}
+		<button class="btn waves-effect waves-light">Delete</button>
+
+		{% csrf_token %}
+	</form>
+</div>
+{% endblock %}
+
+{% block contentJS %}
+
+<script>
+var editor = CodeMirror.fromTextArea(document.getElementById("codepython"), {
+mode: "python",
+theme: "material",
+scrollbarStyle: "overlay",
+styleActiveLine: true,
+lineNumbers: true,
+lineWrapping: true
+});
+</script>
+
+<script type="text/javascript" src="/static/colpy/javascript/space_participant.js"></script>
+
+{% endblock %}

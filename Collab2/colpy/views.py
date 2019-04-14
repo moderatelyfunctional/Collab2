@@ -16,13 +16,13 @@ def create(request):
 	collab_user = CollabUser.objects.get(email = request.user.email)
 	collab_user_spaces = collab_user.spaces.all()
 
-	context['new_space_url'] = 'Papaya,Umber,Jaxon'
-	# while True:
-	# 	new_space_url = create_space_url()
-	# 	if not collab_user_spaces.filter(url = create_space_url).exists():
-	# 		Space.objects.create(url = new_space_url, host = collab_user)
-	# 		context['new_space_url'] = new_space_url
-	# 		break
+	# context['new_space_url'] = 'Papaya,Umber,Jaxon'
+	while True:
+		new_space_url = create_space_url()
+		if not collab_user_spaces.filter(url = create_space_url).exists():
+			Space.objects.create(url = new_space_url, host = collab_user)
+			context['new_space_url'] = new_space_url
+			break
 
 	return render(request, 'create.html', context)
 
@@ -45,6 +45,7 @@ def space(request, custom_url):
 	else:
 		context['user_type'] = 'participant'
 
+	context['space_code'] = space.code
 	return render(request, 'space.html', context)
 
 def delete_space(request):
@@ -74,6 +75,7 @@ def run_python(request):
 		response = err
 	else:
 		response = out
+
 	return HttpResponse(response)
 
 @csrf_exempt
@@ -87,7 +89,7 @@ def pull_python(request):
 @csrf_exempt
 def update_python(request):
 	space_url = request.POST.get('space_url')
-	updated_code = request.POST.get('updated_code')
+	python_code = request.POST.get('python_code')
 
 	collab_user = CollabUser.objects.get(email = request.user.email)
 	space = Space.objects.filter(url = space_url).first()
@@ -95,7 +97,7 @@ def update_python(request):
 	if space.host != collab_user:
 		return HttpResponseBadRequest('Sorry you are not the host of the space')
 
-	space.code = updated_code
+	space.code = python_code
 	space.save()
 	return HttpResponse('The code was updated!')
 

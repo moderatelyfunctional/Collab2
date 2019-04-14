@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 
+{% block variables %}
+	{% with align='center-align' %}
+	{% endwith %}
+{% endblock %}
+
 {% block content %}
 <h3 class="header">Hi, {{ request.user.email }}</h3>
 <h3 class="no-padding">The URL is <a href="http://{{ request.get_host }}/space/{{ new_space_url }}">space/{{ new_space_url }}</a></h3>
