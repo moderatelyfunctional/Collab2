@@ -38,20 +38,14 @@
 
 {% block content %}
 <div class="buffer">
-{% if user_type == 'host' %}
 <form><textarea id="codepython" name="codepython">
-def foo():
-  x = 3 + 4
-  return x
 
-print(foo())
-# A comment
 </textarea></form>
 
 <button class="btn waves-effect waves-light" type="submit" name="action">Run
   <i class="material-icons right">send</i>
 </button>
-<button class="btn waves-effect waves-light" type="submit" name="action">Push
+<button class="btn waves-effect waves-light" type="submit" name="action">Submit
   <i class="material-icons right">cloud</i>
 </button>
 	<form action="/delete_space/" method="post">
@@ -63,13 +57,11 @@ print(foo())
 
 		{% csrf_token %}
 	</form>
-
-
-{% endif %}
 </div>
 {% endblock %}
 
 {% block contentJS %}
+
 <script>
 var editor = CodeMirror.fromTextArea(document.getElementById("codepython"), {
 mode: "python",
@@ -81,5 +73,6 @@ lineWrapping: true
 });
 </script>
 
-<script type="text/javascript" src="/static/colpy/javascript/space_host.js"></script>
+<script type="text/javascript" src="/static/colpy/javascript/space_participant.js"></script>
+
 {% endblock %}
