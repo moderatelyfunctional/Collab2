@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-Log In | Collab2
+Sign Up | Collab2
 {% endblock %}
 
 {% block contentCSS %}
@@ -13,11 +13,11 @@ Log In | Collab2
 <nav class="topbar">
 	<div class="nav-wrapper">
 		<div class="container">
-		<a href="#" class="brand-logo">Collab2</a>
-		<ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a href="about.html">About</a></li>
-			<li><a href="about.html">Log In</a></li>
-		</ul>
+			<a href="#" class="brand-logo">Collab2</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="/home/">About</a></li>
+				<li><a href="/login/">Log In</a></li>
+			</ul>
 		</div>
 	</div>
 </nav>
@@ -25,24 +25,25 @@ Log In | Collab2
 
 {% block content %}
 <div class="login">
-		<div class="row">
+	<div class="row">
 		<div class="col s10 offset-s1">
-		<div class="card z-depth-1">
-			<div class="card-content">
-				<h1>Signup</h1>
-				<form action="/signup/" method="post">
-					<input type="text" name="email" placeholder="Email" value="{{ email_field }}" required>
-					<input type="password" name="password" placeholder="Password" value="{{ password_field }}" required>
-					<input type="password" name="password_conf" placeholder="Confirm Password" value="{{ confirm_password }}" required>
-					{% if error_text %}
-						<div id="error-text">{{ error_text }}</div>
-					{% endif %}
-					<button class="btn btn-width btn-caro-primary section-btn">Sign Up</button>
+			<div class="card z-depth-1">
+				<div class="card-content">
+					<h1>Signup</h1>
+					<form action="/signup/" method="post">
+						<input type="text" name="email" placeholder="Email" value="{{ email_field }}" required>
+						<input type="password" name="password" placeholder="Password" value="{{ password_field }}" required>
+						<input type="password" name="password_conf" placeholder="Confirm Password" value="{{ confirm_password }}" required>
+						{% if error_text %}
+							<div id="error-text">{{ error_text }}</div>
+						{% endif %}
+						<button class="btn btn-width btn-caro-primary section-btn">Sign Up</button>
 
-					{% csrf_token %}
-				</form>
-				<div>Or</div>
-				<a class="other-option" href="/login">Login</a>
+						{% csrf_token %}
+					</form>
+					<div>Or</div>
+					<a class="other-option" href="/login">Login</a>
+				</div>
 			</div>
 		</div>
 	</div>
