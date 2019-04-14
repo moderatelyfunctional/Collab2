@@ -60,3 +60,9 @@ def signup(request):
 
 	auth_in(request, user)
 	return HttpResponseRedirect('/')
+
+
+
+
+
+

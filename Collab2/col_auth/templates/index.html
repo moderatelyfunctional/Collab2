@@ -3,7 +3,7 @@
 {% block content %}
 
 {% if request.user.is_authenticated %}
-	Hey {{ request.user.email }} is authenticated 
+	Hey {{ request.user.email }} is authenticated. Wanna <a href="/create">create</a>
 {% else %}
 	Not authenticated. Try logging in <a href="/login">here</a>
 {% endif %}

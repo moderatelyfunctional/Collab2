@@ -16,3 +16,7 @@ class CollabUser(AbstractBaseUser, PermissionsMixin):
 
 	objects = CollabUserManager()
 
+class Space(models.Model):
+	url = models.TextField(_('url'))
+	participants = models.IntegerField(default=0)
+	host = models.ForeignKey(CollabUser, related_name='spaces', on_delete=models.DO_NOTHING)
