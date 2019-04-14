@@ -27,27 +27,31 @@
 
         <div class="form-wrapper container valign-wrapper">
            <div class="center-align">
-                 <div id="logInPage" class="card">
+                 <div id="logInPage" class="card-panel">
                     <div class="card-content">
-                       <span class="card-title black-text"><span id="buttonColor">Log In</span></span>
+                       <span class="card-title">
+                          <span style="color: black !important; font-size: 1.5rem">Log In</span>
+                       </span>
                        <form>
                           <div class="row">
                             <div class="input-field col s12 ">
-                              <i class="material-icons prefix">person</i>
+                              <!-- <i class="material-icons prefix">person</i> -->
                               <input placeholder="Email" id="email" type="text" class="validate" >
                             </div>
-                          </div>
-                          <div class="row">
+                          <!-- </div>
+                          <div class="row"> -->
                             <div class="input-field col s12">
-                              <i class="material-icons prefix">lock</i>
+                              <!-- <i class="material-icons prefix">lock</i> -->
                               <input placeholder="Password" id="password" type="text" class=" validate">
                             </div>
                           </div>
                        </form>
-                       <medium>No account? Sign up </medium><a href="#"><medium>here.</medium></a>
-                    </div>
-                    <div class="card-action">
-                       <input type="submit" class="btn" value="Log In">
+                       <div class="row">
+                          <medium>No account? Sign up </medium><a href="#"><medium>here.</medium></a>
+                       </div>
+                       <div class="row">
+                          <a class="waves-effect waves-light btn"><span id="buttonColor">Log In</span></a>
+                       </div>
                     </div>
                  </div>
            </div>

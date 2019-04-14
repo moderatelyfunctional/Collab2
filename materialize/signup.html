@@ -14,45 +14,46 @@
     </head>
 
     <body>
-        <nav>
-          <div class="nav-wrapper container">
-            <a href="#" class="brand-logo">Collab2</a>
+        <nav class="grey darken-4">
+          <div class="nav-wrapper nav-container">
+            <a id="collab2-logo" href="#" class="brand-logo white-text">Col(lab)<sup>2</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li><a href="about.html">About</a></li>
-              <li><a href="about.html">Log In</a></li>
+              <li><a href="about.html" style="color:white">Log In</a></li>
             </ul>
           </div>
         </nav>
 
 
         <div class="form-wrapper container valign-wrapper">
-           <div class="row center-align">
-                 <div class="card">
+           <div class="center-align">
+                 <div class="card-panel">
                     <div class="card-content">
-                       <span class="card-title black-text">Sign Up</span>
+                       <span class="card-title">
+                          <span style="color: black !important; font-size: 1.5rem">Sign Up</span>
+                       </span>
                        <form>
-                          <div class="row">
-                            <div class="input-field col s6">
-                                <input placeholder="First Name" id="first" type="text" class="validate">
-                            </div> 
-                            <div class="input-field col s6">
-                                <input placeholder="Last Name" id="last" type="text" class="validate">
-                            </div>
-                          </div>
                           <div class="row">
                             <div class="input-field col s12">
                                 <input placeholder="Email" id="email" type="text" class="validate">
                             </div>
-                          </div>
-                          <div class="row">
+                          <!-- </div>
+                          <div class="row"> -->
                             <div class="input-field col s12">
-                                <input placeholder="Password" id="password" type="text" class="validate">
+                                <input placeholder="Password" id="password" type="password" class="validate">
+                            </div>
+                          <!-- </div>
+                          <div class="row"> -->
+                            <div class="input-field col s12">
+                                <input placeholder="Confirm Password" id="confirm-password" type="password" class="validate">
                             </div>
                           </div>
                        </form>
-                    </div>
-                    <div class="card-action">
-                       <input type="submit" class="btn" value="Sign Up">
+                       <div class="row">
+                          <medium>Already have an account? Log in </medium><a href="#"><medium>here.</medium></a>
+                       </div>
+                       <div class="row">
+                          <a class="waves-effect waves-light btn"><span id="buttonColor">Sign Up</span></a>
+                       </div>
                     </div>
                  </div>
            </div>
