@@ -107,6 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'col_auth.CollabUser'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/

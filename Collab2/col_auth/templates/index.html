@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-Some content here
+
+{% if request.user.is_authenticated %}
+	Hey {{ request.user.email }} is authenticated 
+{% else %}
+	Not authenticated. Try logging in <a href="/login">here</a>
+{% endif %}
+
 {% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+	<h1>Signup</h1>
+	<form action="/signup/" method="post">
+		<input type="text" name="email" placeholder="Email" value="{{ email_field }}" required>
+		<input type="password" name="password" placeholder="Password" value="{{ password_field }}" required>
+		<input type="password" name="password_conf" placeholder="Confirm Password" value="{{ confirm_password }}" required>
+		{% if error_text %}
+			<div id="error-text">{{ error_text }}</div>
+		{% endif %}
+		<button class="btn btn-width btn-caro-primary section-btn">Sign Up</button>
+
+		{% csrf_token %} 
+	</form>
+	<div>Or</div>
+	<a class="other-option" href="/login">Login</a>
+</div>
+{% endblock %}
