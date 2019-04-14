@@ -19,6 +19,9 @@ class CollabUser(AbstractBaseUser, PermissionsMixin):
 class Space(models.Model):
 	url = models.TextField(_('url'))
 	code = models.TextField(_('code'), blank=True)
-	submission = models.TextField(_('submission'), blank=True)
+	submission = models.ManyToManyField('Submission', blank=True)
 	participants = models.IntegerField(default=0)
 	host = models.ForeignKey(CollabUser, related_name='spaces', on_delete=models.DO_NOTHING)
+
+class Submission(models.Model):
+	submission_code = models.TextField(_('submission_code'), blank=True)
