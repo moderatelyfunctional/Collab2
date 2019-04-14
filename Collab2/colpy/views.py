@@ -1,4 +1,5 @@
 import os
+import json
 import random
 import subprocess
 
@@ -74,6 +75,29 @@ def run_python(request):
 	else:
 		response = out
 	return HttpResponse(response)
+
+@csrf_exempt
+def pull_python(request):
+	space_url = request.POST.get('space_url')
+	space = Space.objects.filter(url = space_url).first()
+
+	data = {'python_code': space.code}
+	return HttpResponse(json.dumps(data), content_type='application/json')
+
+@csrf_exempt
+def update_python(request):
+	space_url = request.POST.get('space_url')
+	updated_code = request.POST.get('updated_code')
+
+	collab_user = CollabUser.objects.get(email = request.user.email)
+	space = Space.objects.filter(url = space_url).first()
+
+	if space.host != collab_user:
+		return HttpResponseBadRequest('Sorry you are not the host of the space')
+
+	space.code = updated_code
+	space.save()
+	return HttpResponse('The code was updated!')
 
 
 
