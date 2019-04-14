@@ -1,0 +1,14 @@
+.CodeMirror {
+  position: relative;
+  overflow: hidden;
+  background: white;
+  border: 1px solid #eee;
+  max-width: 80%;
+}
+
+
+
+.CodeMirror-sizer {
+  position: relative;
+  border-right: 30px solid transparent;
+}
