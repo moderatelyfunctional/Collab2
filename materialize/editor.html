@@ -8,7 +8,6 @@
      <!--Import materialize.css-->
      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
-     <link rel="stylesheet" href="lib/codemirror.css">
      <link rel="stylesheet" type="text/css" href="plugin/codemirror/lib/codemirror.css">
      <link rel="stylesheet" type="text/css" href="css/style.css">
      <link rel="stylesheet" type="text/css" href="css/codemirror-edit.css">
@@ -37,10 +36,20 @@
   <textarea id="myText" class="codemirror-textarea col s10"></textarea>
   <div class="col offset-s1"></div>
 
-  <div class="input-field col s8">
-      <a class="waves-effect waves-light btn" type="submit" name="action">
+  <div class="input-field col s4">
+      <a id="run" class="waves-effect waves-light btn modal-trigger" data-target="modal">
          <i class="material-icons right"></i>Run
       </a>
+  </div>
+
+  <div id="modal" class="modal">
+      <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="model-open modal-close waves-effect waves-green btn-flat">Agree</a>
+      </div>
   </div>
 
   <div class="input-field offset-s4">
@@ -55,6 +64,7 @@
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="plugin/codemirror/lib/codemirror.js"></script>
+        <script type="text/javascript" src="js/modal.js"></script>
         <script type="text/javascript" src="js/default.js"></script>
       </body>
     </html>

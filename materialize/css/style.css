@@ -1,6 +1,6 @@
 html, body {
 	height: calc(100% - 32px);
-	/*overflow: hidden;*/
+	overflow: auto !important;
 }
 
 body {
@@ -96,5 +96,9 @@ body {
 .input-field input[type=text]:focus {
   border-bottom: 1px solid #616161 !important;
   box-shadow: 0 1px 0 0 #616161 !important;
+}
+
+.modal {
+  width: 60% !important;
 }
 
