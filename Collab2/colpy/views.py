@@ -7,7 +7,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 
-from col_auth.models import CollabUser, Space
+from col_auth.models import CollabUser, Space, Submission
 from .data import create_space_url
 
 # Create your views here.
@@ -101,8 +101,17 @@ def update_python(request):
 	space.save()
 	return HttpResponse('The code was updated!')
 
+@csrf_exempt
+def submit_python(request):
+	space_url = request.POST.get('space_url')
+	python_code = request.POST.get('python_code')
 
+	space = Space.objects.filter(url = space_url).first()
+	curr_submission = Submission.objects.create(submission_code = python_code)
+	space.submission.add(curr_submission)
+	space.save()
 
+	return HttpResponse('Thanks for submitting!')
 
 
 
