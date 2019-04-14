@@ -1,16 +1,50 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ user_type }} | Collab2
+{% endblock %}
+
+{% block contentCSS %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/space.css' %}" media="screen,projection"/>
+<link type="text/css" rel="stylesheet" href="{% static 'vendor/codemirror/lib/codemirror.css' %}" media="screen,projection"/>
+<link type="text/css" rel="stylesheet" href="{% static 'vendor/codemirror/theme/material.css' %}" media="screen,projection"/>
+<link type="text/css" rel="stylesheet" href="{% static 'vendor/codemirror/addon/scroll/simplescrollbars.css' %}" media="screen,projection"/>
+{% endblock %}
+
+{% block headerJS %}
+<script src="{% static 'vendor/codemirror/lib/codemirror.js' %}"></script>
+<script src="{% static 'vendor/codemirror/mode/python/python.js' %}"></script>
+<script src="{% static 'vendor/codemirror/addon/selection/active-line.js' %}"></script>
+<script src="{% static 'vendor/codemirror/addon/scroll/simplescrollbars.js' %}"></script>
+
+{% endblock %}
+
+{% block header %}
+<nav class="topbar">
+	<div class="nav-wrapper">
+		<div class="container">
+			<a href="#" class="brand-logo">Collab2</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="/home/">About</a></li>
+				<li><a href="/login/">Log In</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+{% endblock %}
 
 {% block content %}
-You are a {{ user_type }}.
+<div class="buffer">
 {% if user_type == 'host' %}
-<textarea id="code-python" name="code">
+<form><textarea id="codepython" name="codepython">
 def foo():
   x = 3 + 4
   return x
 
 print(foo())
 # A comment
-</textarea>
+</textarea></form>
 	<form action="/delete_space/" method="post">
 		<input type="hidden" name="space_url" value="{{ space_url }}" required>
 		{% if error_text %}
@@ -18,16 +52,29 @@ print(foo())
 		{% endif %}
 		<button>Delete</button>
 
-		{% csrf_token %} 
+		{% csrf_token %}
 	</form>
 
 {% endif %}
+</div>
 {% endblock %}
 
 {% block contentJS %}
+<script>
+var editor = CodeMirror.fromTextArea(document.getElementById("codepython"), {
+mode: "python",
+theme: "material",
+scrollbarStyle: "overlay",
+styleActiveLine: true,
+lineNumbers: true,
+lineWrapping: true
+});
+</script>
+
 {% if user_type == 'host' %}
 	<script type="text/javascript" src="/static/colpy/javascript/space_host.js"></script>
 {% else %}
 	<script type="text/javascript" src="/static/colpy/javascript/space_participant.js"></script>
 {% endif %}
+
 {% endblock %}
