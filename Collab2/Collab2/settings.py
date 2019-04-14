@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     'col_auth.apps.ColAuthConfig',
     'colpy.apps.ColpyConfig',
 ]
