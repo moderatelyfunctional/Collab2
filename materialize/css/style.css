@@ -1,9 +1,13 @@
-html, body,
+html, body {
+	height: calc(100% - 32px);
+	/*overflow: hidden;*/
+}
 
 body {
- background-image: url("../img/ilija-boshkov-489245-unsplash-crop-wash.jpg");
- background-color: #000000;
- background-size: cover;
+	/*background-image: url("../img/ilija-boshkov-489245-unsplash-crop-wash.jpg");*/
+	background-image: url("../img/jeremy-perkins-333405-unsplash-darker.jpg");
+	background-color: #000000;
+	background-size: cover;
 }
 
 .form-wrapper {
@@ -14,11 +18,18 @@ body {
 	height: 100%;
 }
 
-.container {
-    height: 100%;
+.nav-container {
     margin: 0 auto;
-    max-width: 1280px;
-    width: 90%;}
+    width: 90%;
+}
+
+.container {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+    height: 100%;
+    width: 100%;
+}
 
  /* label focus color */
 .input-field input[type=text]:focus + label {
