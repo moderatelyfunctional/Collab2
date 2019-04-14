@@ -1,11 +1,29 @@
 {% extends 'base.html' %}
 
+{% block contentCSS %}
+	<link type="text/css" rel="stylesheet" href="/static/css/index.css" media="screen,projection"/>
+{% endblock %}
+
+{% block navContent %}
+	{% if request.user.is_authenticated %}
+		<li><a href="logout/" style="color:white">{{ request.user.email}}, Log Out</a></li>
+	{% else %}
+		<li><a href="login/" style="color:white">Log In</a></li>
+	{% endif %}
+{% endblock %}
+
 {% block content %}
-
-{% if request.user.is_authenticated %}
-	Hey {{ request.user.email }} is authenticated. Wanna <a href="/create">create</a>
-{% else %}
-	Not authenticated. Try logging in <a href="/login">here</a>
-{% endif %}
-
+<h3 class="header center white-text">Reimagining computer science classes</h3>
+<h3 class="no-padding center white-text">through collaborative coding.</h3>
+<div class="row col l12" style="width:55%;">
+	<div class="input-field col s8 white">
+		<input placeholder="Link to URL" id="name" type="text" class="validate" autocomplete="off">
+	</div>
+	<div class="row input-field col s2">
+		<a class="waves-effect waves-light btn-large white black-text">Join</a>
+	</div>
+	<div class="row input-field col s2">
+		<a class="waves-effect waves-light btn-large white black-text">Create New</a>
+	</div>
+</div>
 {% endblock %}

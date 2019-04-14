@@ -1,0 +1,44 @@
+html, body {
+	height: calc(100% - 32px);
+}
+
+#collab2-logo {
+	font-size: 1.5rem;
+}
+
+.form-wrapper {
+	height: 100%;
+}
+
+.my-wrapper {
+	height: 100%;
+}
+
+.no-padding {
+	margin-top: 0;
+	margin-bottom: 40px;
+}
+
+.nav-container {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.container {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+ /* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #616161 !important;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #616161 !important;
+  box-shadow: 0 1px 0 0 #616161 !important;
+}
+

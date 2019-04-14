@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_in
+from django.contrib.auth import logout as auth_logout
 
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
@@ -61,7 +62,9 @@ def signup(request):
 	auth_in(request, user)
 	return HttpResponseRedirect('/')
 
-
+def logout(request):
+	auth_logout(request)
+	return HttpResponseRedirect('/')	
 
 
 

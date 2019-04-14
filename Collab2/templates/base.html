@@ -4,29 +4,37 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8"/>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-
-	<title>{% block title %}Collab2{% endblock %}</title>
-	<link type="text/css" rel="stylesheet" href="{% static 'vendor/css/materialize.min.css' %}" media="screen,projection"/>
+	<!--Define charset-->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--Import Google Icon Font-->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css and style.css-->
+	<link type="text/css" rel="stylesheet" href="/static/vendor/css/materialize.min.css" media="screen,projection"/>
+	<link type="text/css" rel="stylesheet" href="/static/css/base.css" media="screen,projection"/>
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+	<title>Collab2</title>
+
 	{% block contentCSS %}
 	{% endblock %}
 	{% block headerJS %}
 	{% endblock %}
 </head>
-
 <body>
-	<main>
-		<header>
-			{% block header %}
-			{% endblock %}
-		</header>
+	<nav class="grey darken-4">
+		<div class="nav-wrapper nav-container">
+			<a id="collab2-logo" href="/" class="brand-logo white-text">Col(lab)<sup>2</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				{% block navContent %}
+				{% endblock %}
+			</ul>
+		</div>
+	</nav>
 
+	<div class="container center-align">
 		{% block content %}
 		{% endblock %}
-	</main>
+	</div>
 
 	<script type="text/javascript" src="{% static 'vendor/js/jquery-3.4.0.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'vendor/js/materialize.min.js' %}"></script>
