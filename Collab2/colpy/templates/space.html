@@ -17,7 +17,6 @@
 <script src="{% static 'vendor/codemirror/mode/python/python.js' %}"></script>
 <script src="{% static 'vendor/codemirror/addon/selection/active-line.js' %}"></script>
 <script src="{% static 'vendor/codemirror/addon/scroll/simplescrollbars.js' %}"></script>
-
 {% endblock %}
 
 {% block header %}
@@ -26,8 +25,11 @@
 		<div class="container">
 			<a href="#" class="brand-logo">Collab2</a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="/home/">About</a></li>
-				<li><a href="/login/">Log In</a></li>
+        {% if request.user.is_authenticated %}
+        <li><a href="/logout/">Log Out</a></li>
+        {% else %}
+        <li><a href="/login/">Log In</a></li>
+        {% endif %}
 			</ul>
 		</div>
 	</div>
