@@ -16,7 +16,6 @@ def create(request):
 	collab_user = CollabUser.objects.get(email = request.user.email)
 	collab_user_spaces = collab_user.spaces.all()
 
-	# context['new_space_url'] = 'Papaya,Umber,Jaxon'
 	while True:
 		new_space_url = create_space_url()
 		if not collab_user_spaces.filter(url = create_space_url).exists():
@@ -30,6 +29,9 @@ def space(request, custom_url):
 	context = dict()
 	context['space_url'] = custom_url
 
+	if Space.objects.filter(url = custom_url).count() == 0:
+		return render(request, 'no_space.html', context)
+
 	space = Space.objects.get(url = custom_url)
 	context['space_code'] = space.code
 
@@ -37,16 +39,18 @@ def space(request, custom_url):
 		context['user_type'] = 'participant'
 		return render(request, 'space_participant.html', context)
 
-	if not Space.objects.filter(url = custom_url).exists():
-		return render(request, 'no_space.html', context)
-
 	collab_user = CollabUser.objects.get(email = request.user.email)
 	if space.host == collab_user:
 		context['user_type'] = 'host'
-		return render(request, 'space_host.html', context)
+		return render(request, 'space_admin.html', context)
 	else:
 		context['user_type'] = 'participant'
 		return render(request, 'space_participant.html', context)
+
+def gotospace(request):
+	context = dict()
+	custom_url = request.POST.get('custom_url')
+	return HttpResponseRedirect('/space/' + custom_url)
 
 def delete_space(request):
 	space_url = request.POST.get('space_url')
@@ -56,7 +60,7 @@ def delete_space(request):
 
 	if space.host == collab_user:
 		space.delete()
-	
+
 	return HttpResponseRedirect('/')
 
 @csrf_exempt
@@ -70,7 +74,7 @@ def run_python(request):
 	p = subprocess.Popen(['python', code_filename], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 	out, err = p.communicate()
 	os.remove(code_filename)
-	
+
 	if err:
 		response = err
 	else:
@@ -130,7 +134,3 @@ def fetch_submission(request):
 
 	data = {'python_code': code}
 	return HttpResponse(json.dumps(data), content_type='application/json')
-
-
-
-

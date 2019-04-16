@@ -2,38 +2,30 @@
 {% load static %}
 
 {% block title %}
-{{ user_type }} | Collab2
+Contributor | Collab2
 {% endblock %}
 
 {% block contentCSS %}
-<link type="text/css" rel="stylesheet" href="{% static 'css/space.css' %}" media="screen,projection"/>
 <link type="text/css" rel="stylesheet" href="{% static 'vendor/codemirror/lib/codemirror.css' %}" media="screen,projection"/>
 <link type="text/css" rel="stylesheet" href="{% static 'vendor/codemirror/theme/material.css' %}" media="screen,projection"/>
 <link type="text/css" rel="stylesheet" href="{% static 'vendor/codemirror/addon/scroll/simplescrollbars.css' %}" media="screen,projection"/>
+<link type="text/css" rel="stylesheet" href="{% static 'css/space.css' %}" media="screen,projection"/>
 {% endblock %}
 
 {% block headerJS %}
 <script src="{% static 'vendor/codemirror/lib/codemirror.js' %}"></script>
 <script src="{% static 'vendor/codemirror/mode/python/python.js' %}"></script>
-<script src="{% static 'vendor/codemirror/addon/selection/active-line.js' %}"></script>
 <script src="{% static 'vendor/codemirror/addon/scroll/simplescrollbars.js' %}"></script>
 {% endblock %}
 
-{% block header %}
-<nav class="topbar">
-	<div class="nav-wrapper">
-		<div class="container">
-			<a href="#" class="brand-logo">Collab2</a>
-			<ul id="nav-mobile" class="right hide-on-med-and-down">
-        {% if request.user.is_authenticated %}
-        <li><a href="/logout/">Log Out</a></li>
-        {% else %}
-        <li><a href="/login/">Log In</a></li>
-        {% endif %}
-			</ul>
-		</div>
-	</div>
-</nav>
+{% block navContent %}
+<li><a href="/">Home</a></li>
+
+{% if request.user.is_authenticated %}
+	<li><a href="/logout/">Log Out</a></li>
+{% else %}
+  <li><a href="/login/">Log In</a></li>
+{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -47,11 +39,14 @@
 	</div>
 </div>
 
-<div class="buffer">
+<div class="buffer" id="buffer">
+	<div class="bufferHeader"><p class="bufferHeaderText">{{ space_url }}</p></div>
 	<form>
 		<textarea id="codepython" name="codepython">{{ space_code }}</textarea>
 	</form>
+</div>
 
+<div class="controlButtons">
 	<button id="run-btn" class="btn waves-effect waves-light" type="submit" name="action">Run
 	  <i class="material-icons right">send</i>
 	</button>
@@ -61,7 +56,6 @@
 	<button id="submit-btn" class="btn waves-effect waves-light" type="submit" name="action">Submit
 	  <i class="material-icons right">code</i>
 	</button>
-
 </div>
 {% endblock %}
 
@@ -72,15 +66,12 @@ const editor = CodeMirror.fromTextArea(document.getElementById("codepython"), {
 	mode: "python",
 	theme: "material",
 	scrollbarStyle: "overlay",
-	styleActiveLine: true,
 	lineNumbers: true,
-	lineWrapping: true,
+	lineWrapping: false,
 })
-editor.setSize(null, 530);
 const space_url = '{{ space_url }}';
 </script>
 
 <script type="text/javascript" src="/static/js/modal.js"></script>
 <script type="text/javascript" src="/static/colpy/javascript/space_participant.js"></script>
-
 {% endblock %}

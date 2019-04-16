@@ -9,7 +9,4 @@ def create_space_url():
 	color = colors[int(random() * len(colors))]
 	name = names[int(random() * len(names))]
 
-	return '{},{},{}'.format(fruit, color, name)
-
-
-
+	return '{}{}{}'.format(fruit, color, name)

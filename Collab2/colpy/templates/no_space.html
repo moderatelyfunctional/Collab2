@@ -1,5 +1,21 @@
 {% extends 'base.html' %}
 
+{% block title %}
+Space 404 | Col(lab)2
+{% endblock %}
+
+{% block navContent %}
+		<li><a href="/" style="color:white">Home</a></li>
+		{% if request.user.is_authenticated %}
+			<li><a href="logout/" style="color:white">Log Out ({{request.user.email}})</a></li>
+		{% else %}
+			<li><a href="signup/" style="color:white">Sign Up</a></li>
+			<li><a href="login/" style="color:white">Log In</a></li>
+		{% endif %}{% endblock %}
+
 {% block content %}
-Sorry that space does not exist.
+<div class="centerChild">
+	<h3>Sorry, that space does not exist.</h3>
+</div>
+
 {% endblock %}
